@@ -17,6 +17,8 @@ var configModule = config.GetConfig()
 func GetAllShapes(db *sql.DB, w http.ResponseWriter, r *http.Request) {
 	fmt.Println("api > GetAllShapes")
 
+	enableCors(&w)
+
 	shapes := []model.Shape{}
 
 	// Find all sql
@@ -52,6 +54,11 @@ func GetAllShapes(db *sql.DB, w http.ResponseWriter, r *http.Request) {
 
 // CreateShape post to create
 func CreateShape(db *sql.DB, w http.ResponseWriter, r *http.Request) {
+	setupResponse(&w, r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+
 	shape := model.Shape{}
 
 	decoder := json.NewDecoder(r.Body)
