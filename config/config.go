@@ -22,7 +22,7 @@ func GetConfig() *Config {
 			Dialect:  "postgresql",
 			Username: "awsuser",
 			Password: "Password1!",
-			Endpoint: "127.0.0.1",
+			Endpoint: "strategy-one-db.cluster-ciwkcai1iw95.us-east-1.rds.amazonaws.com",
 			Port:     "5432",
 			Name:     "dev",
 			Charset:  "utf8",
